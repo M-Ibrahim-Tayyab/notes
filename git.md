@@ -83,3 +83,25 @@
 - **Apply Stashed Changes**: `git stash apply`
 - **Show Configuration**: `git config --list`
 
+
+Why is it recommended to use pull requests in Git instead of directly pushing changes to the master branch?
+
+`git pull request`, often referred to as just a "pull request" (PR) or "merge request" in some platforms like GitLab, is a feature of distributed version control systems like Git that facilitates collaboration. Pull requests provide a way for developers to submit changes to a project for review before those changes are merged into a primary branch, such as the `master` or `main` branch. Here's why pull requests are important and why pushing directly to the master branch is often discouraged:
+
+1. *Code Review*: PRs provide an opportunity for other team members to review code changes. This helps ensure that the code is of high quality, follows project conventions, and doesn't introduce any regressions or bugs.
+
+2. **Continuous Integration (CI) and Continuous Deployment (CD)**: Many projects have CI/CD pipelines set up to run tests, lint code, and perform other checks when a pull request is opened. This ensures that any proposed changes don't break existing functionality.
+
+3. *Maintain a Clean History*: Direct pushes can lead to a cluttered and hard-to-follow commit history, especially if multiple people are pushing simultaneously. PRs allow for a more organized approach, where feature branches can be merged in a single commit (especially if you're squashing commits), keeping the history cleaner.
+
+4. *Avoid Disrupting the Stable Code*: The `master` branch is often considered the stable or production-ready branch. If everyone pushes their changes directly to `master`, it can quickly become unstable. By using feature branches and PRs, there's a buffer zone where testing and integration happen before it reaches `master`.
+
+5. *Documentation and Discussion*: PRs provide a platform to discuss the changes being proposed. This can be in the form of code comments, general discussions about the implementation approach, or suggestions for improvement. It acts as a documented history of the decision-making process for future reference.
+
+6. *Access Control*: It's a security risk to allow everyone to push directly to the primary branch. By restricting direct pushes and using PRs, you can ensure that only trusted contributors can modify the codebase after appropriate review.
+
+7. *Conflict Resolution*: When multiple developers work on the same codebase, there's potential for merge conflicts. Resolving these conflicts in the context of a PR allows for a more isolated and controlled environment.
+
+8. *Encourage Modular Work*: When developers know they'll need to submit a PR for changes, they're more likely to make changes in smaller, more modular chunks. This results in more manageable code changes and more straightforward reviews.
+
+For all these reasons and more, most professional development teams adopt a workflow that encourages the use of pull requests and discourages direct pushes to the primary or master branch. It helps maintain the quality, stability, and security of the codebase.
